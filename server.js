@@ -5,45 +5,44 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var articleOne = {
-  title : 'Article One | Pramod Bharti',
-  heading : 'Article One',
-  date : 'March 1, 2018',
-  content : `
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
-                </p>`
-};
-
-var articleTwo = {
-  title : 'Article Two | Pramod Bharti',
-  heading : 'Article Two',
-  date : 'March 2, 2018',
-  content : `   
-                <p>Nulla pulvinar porta ipsum ut tristique. Ut tempor convallis consectetur. Pellentesque justo elit, varius at quam nec, euismod eleifend diam. Pellentesque vehicula ipsum sit amet risus sagittis, ut viverra diam feugiat. Nunc ac erat at dolor congue placerat. Donec consectetur diam pretium auctor cursus. Etiam tristique mollis lacus, nec vestibulum mauris cursus in.
-                </p>
-                <p>Nulla pulvinar porta ipsum ut tristique. Ut tempor convallis consectetur. Pellentesque justo elit, varius at quam nec, euismod eleifend diam. Pellentesque vehicula ipsum sit amet risus sagittis, ut viverra diam feugiat. Nunc ac erat at dolor congue placerat. Donec consectetur diam pretium auctor cursus. Etiam tristique mollis lacus, nec vestibulum mauris cursus in.
-                </p>
-                <p>Nulla pulvinar porta ipsum ut tristique. Ut tempor convallis consectetur. Pellentesque justo elit, varius at quam nec, euismod eleifend diam. Pellentesque vehicula ipsum sit amet risus sagittis, ut viverra diam feugiat. Nunc ac erat at dolor congue placerat. Donec consectetur diam pretium auctor cursus. Etiam tristique mollis lacus, nec vestibulum mauris cursus in.
-                </p>`
-};
-
-var articleThree = {
-  title : 'Article Three | Pramod Bharti',
-  heading : 'Article Three',
-  date : 'March 3, 2018',
-  content : `
-                <p>
-               Fusce placerat condimentum interdum. Integer eget sapien lacus. Aliquam in iaculis sem. Praesent in diam nec nulla tristique blandit sit amet sed lacus. Proin tincidunt, augue nec vulputate lobortis, tellus magna fermentum lorem, in congue massa orci id nisl. Maecenas at lorem at tortor pharetra laoreet eget a tellus. Nunc vulputate tortor ac sem rhoncus congue. Pellentesque eget feugiat sem. Pellentesque iaculis libero vel dictum accumsan. Mauris sed est a enim interdum ornare vehicula nec diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </p>
-                <p>Fusce placerat condimentum interdum. Integer eget sapien lacus. Aliquam in iaculis sem. Praesent in diam nec nulla tristique blandit sit amet sed lacus. Proin tincidunt, augue nec vulputate lobortis, tellus magna fermentum lorem, in congue massa orci id nisl. Maecenas at lorem at tortor pharetra laoreet eget a tellus. Nunc vulputate tortor ac sem rhoncus congue. Pellentesque eget feugiat sem. Pellentesque iaculis libero vel dictum accumsan. Mauris sed est a enim interdum ornare vehicula nec diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </p>
-                <p>Fusce placerat condimentum interdum. Integer eget sapien lacus. Aliquam in iaculis sem. Praesent in diam nec nulla tristique blandit sit amet sed lacus. Proin tincidunt, augue nec vulputate lobortis, tellus magna fermentum lorem, in congue massa orci id nisl. Maecenas at lorem at tortor pharetra laoreet eget a tellus. Nunc vulputate tortor ac sem rhoncus congue. Pellentesque eget feugiat sem. Pellentesque iaculis libero vel dictum accumsan. Mauris sed est a enim interdum ornare vehicula nec diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </p>`
+var articles = {
+  'article-one' :{
+          title : 'Article One | Pramod Bharti',
+          heading : 'Article One',
+          date : 'March 1, 2018',
+          content : `
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
+                        </p>`
+    },
+  'article-two' :{
+          title : 'Article Two | Pramod Bharti',
+          heading : 'Article Two',
+          date : 'March 2, 2018',
+          content : `   
+                        <p>Nulla pulvinar porta ipsum ut tristique. Ut tempor convallis consectetur. Pellentesque justo elit, varius at quam nec, euismod eleifend diam. Pellentesque vehicula ipsum sit amet risus sagittis, ut viverra diam feugiat. Nunc ac erat at dolor congue placerat. Donec consectetur diam pretium auctor cursus. Etiam tristique mollis lacus, nec vestibulum mauris cursus in.
+                        </p>
+                        <p>Nulla pulvinar porta ipsum ut tristique. Ut tempor convallis consectetur. Pellentesque justo elit, varius at quam nec, euismod eleifend diam. Pellentesque vehicula ipsum sit amet risus sagittis, ut viverra diam feugiat. Nunc ac erat at dolor congue placerat. Donec consectetur diam pretium auctor cursus. Etiam tristique mollis lacus, nec vestibulum mauris cursus in.
+                        </p>
+                        <p>Nulla pulvinar porta ipsum ut tristique. Ut tempor convallis consectetur. Pellentesque justo elit, varius at quam nec, euismod eleifend diam. Pellentesque vehicula ipsum sit amet risus sagittis, ut viverra diam feugiat. Nunc ac erat at dolor congue placerat. Donec consectetur diam pretium auctor cursus. Etiam tristique mollis lacus, nec vestibulum mauris cursus in.
+                        </p>`
+    },
+  'article-three' :{
+          title : 'Article Three | Pramod Bharti',
+          heading : 'Article Three',
+          date : 'March 3, 2018',
+          content : `
+                        <p>
+                       Fusce placerat condimentum interdum. Integer eget sapien lacus. Aliquam in iaculis sem. Praesent in diam nec nulla tristique blandit sit amet sed lacus. Proin tincidunt, augue nec vulputate lobortis, tellus magna fermentum lorem, in congue massa orci id nisl. Maecenas at lorem at tortor pharetra laoreet eget a tellus. Nunc vulputate tortor ac sem rhoncus congue. Pellentesque eget feugiat sem. Pellentesque iaculis libero vel dictum accumsan. Mauris sed est a enim interdum ornare vehicula nec diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                        <p>Fusce placerat condimentum interdum. Integer eget sapien lacus. Aliquam in iaculis sem. Praesent in diam nec nulla tristique blandit sit amet sed lacus. Proin tincidunt, augue nec vulputate lobortis, tellus magna fermentum lorem, in congue massa orci id nisl. Maecenas at lorem at tortor pharetra laoreet eget a tellus. Nunc vulputate tortor ac sem rhoncus congue. Pellentesque eget feugiat sem. Pellentesque iaculis libero vel dictum accumsan. Mauris sed est a enim interdum ornare vehicula nec diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                        <p>Fusce placerat condimentum interdum. Integer eget sapien lacus. Aliquam in iaculis sem. Praesent in diam nec nulla tristique blandit sit amet sed lacus. Proin tincidunt, augue nec vulputate lobortis, tellus magna fermentum lorem, in congue massa orci id nisl. Maecenas at lorem at tortor pharetra laoreet eget a tellus. Nunc vulputate tortor ac sem rhoncus congue. Pellentesque eget feugiat sem. Pellentesque iaculis libero vel dictum accumsan. Mauris sed est a enim interdum ornare vehicula nec diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>`
+            }
 };
 
 function createTemplate(data){
@@ -81,12 +80,16 @@ function createTemplate(data){
     `;
     return htmlTemplate;
 }
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function(req, res){
-   res.send(createTemplate(articleOne)); 
+app.get('/:articleName', function(req, res){
+    // articleName == article-one
+    // articles[articleName] == {} content object for article one
+   var articleName = req.params.articleName 
+   res.send(createTemplate(articles[articleName])); 
 });
 
 app.get('/article-two', function(req, res){
