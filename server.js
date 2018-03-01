@@ -19,7 +19,7 @@ var articleOne = {
                 </p>`
 };
 
-var articleOne = {
+var articleTwo = {
   title : 'Article Two | Pramod Bharti',
   heading : 'Article Two',
   date : 'March 2, 2018',
