@@ -5,6 +5,20 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
+var content = {
+  title : 'Article One | Pramod Bharti',
+  heading : 'Article One',
+  date : 'March 1, 2018',
+  content : `
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique pretium lectus vel laoreet. Proin quis enim libero. Praesent at magna a magna molestie lacinia. Integer eu lacus orci. Morbi interdum risus quis eros tincidunt laoreet. Duis quis felis arcu. Donec cursus interdum volutpat. Suspendisse bibendum orci ut dolor lobortis facilisis. Proin rhoncus, justo a finibus faucibus, metus est pellentesque odio, non congue enim purus nec lectus. Donec ut nunc lorem. Phasellus nisi purus, molestie vel nibh ut, imperdiet semper sem. Suspendisse lobortis eleifend augue.
+                </p>`
+};
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
