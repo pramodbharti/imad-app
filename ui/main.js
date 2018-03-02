@@ -39,5 +39,5 @@ submit.onclick = function () {
     }
     
     var ul = document.getElementById("ul_list");
-    ul.innerHTML = ul.toString();
+    ul.innerHTML = list.toString();
 };
