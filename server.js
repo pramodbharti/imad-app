@@ -92,7 +92,7 @@ app.get('/counter', function(req, res){
 });
 
 var names = [];
-app.get('/submit-name/:name', function(req, res) { // URL : /submit-name?xxx
+app.get('/submit-name', function(req, res) { // URL : /submit-name?name=xxx
    var name = req.query.name;
    
    names.push(name);
