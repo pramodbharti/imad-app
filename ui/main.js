@@ -26,18 +26,36 @@ button.onclick = function () {
     
 };
 
-var nameInput = document.getElementById("name");
-var name = nameInput.value;
 var submit = document.getElementById("submit_btn");
 submit.onclick = function () {
-    // Make the request ti the server and send the name
-    // Capture a list of names and render it as a list
-    var names = ["name1", "name2", "name3"];
-    var list = "";
-    for (var i = 0; i < names.length; i++){
-        list += "<li>" + names[i] + "</li>";
-    }
+    // Create a request object
+    var request = new XMLHttpRequest();
     
-    var ul = document.getElementById("ul_list");
-    ul.innerHTML = list.toString();
+    // capture the response and store it in a variable
+    request.onreadystatechange = function () {
+        if(request.readyState === XMLHttpRequest.DONE){
+            // Take some action here accordingly
+            if(request.status === 200){
+                 // Capture a list of names and render it as a list
+                var names = request.getResponse;
+                names = JSON.parse(names);
+                var list = "";
+                for (var i = 0; i < names.length; i++){
+                    list += "<li>" + names[i] + "</li>";
+                }
+                
+                var ul = document.getElementById("ul_list");
+                ul.innerHTML = list.toString(); 
+             }
+        }
+        // Not done yet
+    };
+    
+    var nameInput = document.getElementById("name");
+    var name = nameInput.value;
+    
+    // Make the request
+    request.open("GET", "http://pramodbhartiinfo.imad.hasura-app.io/submit-name?name=" + name, true);
+    request.send(null);
+   
 };
