@@ -1,19 +1,16 @@
-console.log('Loaded!');
+// Counter code
 
+var button = document.getElementById("count");
+var counter = 0;
 
-// Change the text of the main-text div
-var element = document.getElementById("main-text");
-element.innerHTML = "Happy Holi";
-
-// Move the image gradually
-var img = document.getElementById("madi");
-
-var marginLeft = 0;
-function moveRight(){
-    marginLeft += 5;
-    img.style.marginLeft = marginLeft + 'px';
-}
-
-img.onclick = function () {
-    var interval = setInterval(moveRight, 50);
+button.onclick = function () {
+    
+    // Make a request to the counter endpoint
+    
+    // capture the response and store it in a variable
+    
+    // Render the variable in the correct span
+    counter += 1;
+    var span = document.getElementById("count");
+    span.innerHTML = counter.toString();
 };
