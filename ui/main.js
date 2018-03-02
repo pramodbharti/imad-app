@@ -7,4 +7,6 @@ element.innerHTML = "Happy Holi";
 
 // Move the image
 var img = document.getElementById("madi");
-img.style.marginLeft = '200px';
+img.onClick = function () {
+    img.style.marginLeft = '200px';    
+};
