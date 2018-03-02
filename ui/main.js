@@ -21,7 +21,7 @@ button.onclick = function () {
     };
     
     // Make the request
-    request.open("http://pramodbhartiinfo.imad.hasura-app.io/counter", true);
+    request.open("GET", "http://pramodbhartiinfo.imad.hasura-app.io/counter", true);
     request.send(null);
     
 };
